@@ -17,8 +17,8 @@ public:
     void ustawHaslo (string noweHaslo);
 
     int pobierzId ();
-    string pobierzLogin ();
-    string pobierzHaslo ();
-
+    string pobierzLogin();
+    string pobierzHaslo();
 };
+
 #endif // UZYTKOWNIK_H

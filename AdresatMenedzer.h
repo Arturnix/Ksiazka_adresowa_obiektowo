@@ -5,27 +5,31 @@
 #include <vector>
 
 #include "Adresat.h"
-#include "MetodyPomocnicze.h"
 #include "PlikZAdresatami.h"
 #include "UzytkownikMenedzer.h"
+#include "MetodyPomocnicze.h"
 
 using namespace std;
 
 class AdresatMenedzer {
 
-const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
-vector<Adresat> adresaci;
-int idOstatniegoAdresata;
-PlikZAdresatami plikZAdresatami;
+    PlikZAdresatami plikZAdresatami;
+    Adresat adresat;
 
-Adresat podajDaneNowegoAdresata ();
+    const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
+    vector <Adresat> adresaci;
+
+    Adresat podajDaneNowegoAdresata();
+    void wyswietlDaneAdresata(Adresat adresat);
 
 public:
-    AdresatMenedzer(int idZalogowanegoUzytkownika) : ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika){
-    adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+    AdresatMenedzer(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika)
+        : plikZAdresatami(nazwaPlikuZAdresatami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika) {
+        adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
     };
-    void dodajAdresata ();
-    void wypiszWszystkichAdresatow ();
+    void dodajAdresata();
+    void wyswietlWszystkichAdresatow();
 };
+
 
 #endif // ADRESATMENEDZER_H

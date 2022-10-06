@@ -2,12 +2,10 @@
 #define KSIAZKAADRESOWA_H
 
 #include <iostream>
+
 #include "UzytkownikMenedzer.h"
 #include "PlikZUzytkownikami.h"
-#include "Uzytkownik.h"
 #include "AdresatMenedzer.h"
-#include "Adresat.h"
-#include "MetodyPomocnicze.h"
 #include "PlikZAdresatami.h"
 
 using namespace std;
@@ -15,19 +13,27 @@ using namespace std;
 class KsiazkaAdresowa {
 
     UzytkownikMenedzer uzytkownikMenedzer;
-    MetodyPomocnicze metodyPomocnicze;
+    AdresatMenedzer *adresatMenedzer;
+    const string NAZWA_PLIKU_Z_ADRESATAMI;
 
 public:
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami) {};
-    void rejestracjaUzytkownika ();
-    void wypiszWszystkichUzytkownikow ();
-    void logowanieUzytkownika ();
-    void zmianaHaslaZalogowanegoUzytkownika ();
-    void dodajAdresata();
-    void wypiszWszystkichAdresatow();
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami)
+        : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {
+        adresatMenedzer = NULL;
+    };
+    ~KsiazkaAdresowa() {
+        delete adresatMenedzer;
+        adresatMenedzer = NULL;
+    };
+    void rejestracjaUzytkownika();
+    void wypiszWszystkichUzytkownikow();
+    void wczytajUzytkownikowZPliku();
+    void logowanieUzytkownika();
     bool czyUzytkownikJestZalogowany();
-    char wybierzOpcjeZMenuGlownego();
-    char wybierzOpcjeZMenuUzytkownika();
-    void wylogujUzytkownika ();
+    void zmianaHaslaZalogowanegoUzytkownika();
+    void wylogujUzytkownika();
+    void dodajAdresata();
+    void wyswietlWszystkichAdresatow();
 };
+
 #endif // KSIAZKAADRESOWA_H

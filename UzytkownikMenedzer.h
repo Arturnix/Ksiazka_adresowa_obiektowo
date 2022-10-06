@@ -4,38 +4,36 @@
 #include <iostream>
 #include <vector>
 #include <windows.h>
-#include <fstream>
-#include <sstream>
 
 #include "Uzytkownik.h"
-#include "PlikZUzytkownikami.h"
 #include "MetodyPomocnicze.h"
+#include "PlikZUzytkownikami.h"
 
 using namespace std;
 
 class UzytkownikMenedzer {
 
-    int idZalogowanegoUzytkownika;
+    vector <Uzytkownik> uzytkownicy;
     PlikZUzytkownikami plikZUzytkownikami;
-    vector<Uzytkownik> uzytkownicy;
+    int idZalogowanegoUzytkownika;
 
-    Uzytkownik podajDaneNowegoUzytkownika ();
-    int pobierzIdNowegoUzytkownika ();
-    bool czyIstniejeLogin (string login);
+    Uzytkownik podajDaneNowegoUzytkownika();
+    int pobierzIdNowegoUzytkownika();
+    bool czyIstniejeLogin(string login);
 
 public:
-    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {
-    idZalogowanegoUzytkownika = 0;
+    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami, int ID_ZALOGOWANEGO_UZYTKOWNIKA = 0)
+        : plikZUzytkownikami(nazwaPlikuZUzytkownikami), idZalogowanegoUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA) {
+        uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
     };
-    void ustawIdZalogowanegoUzytkownika(int id);
+    void rejestracjaUzytkownika();
+    void wypiszWszystkichUzytkownikow();
+    void logowanieUzytkownika();
+    bool czyUzytkownikJestZalogowany();
+    void ustawIdZalogowanegoUzytkownika (int noweId);
     int pobierzIdZalogowanegoUzytkownika();
-    void rejestracjaUzytkownika ();
-    void wypiszWszystkichUzytkownikow ();
-    void wczytajUzytkownikowZPliku ();
-    void logowanieUzytkownika ();
-    void wylogujUzytkownika ();
     void zmianaHaslaZalogowanegoUzytkownika();
-    bool czyUzytkownikJestZalogowany ();
-
+    void wylogujUzytkownika();
 };
+
 #endif // UZYTKOWNIKMENEDZER_H
