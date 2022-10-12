@@ -13,13 +13,14 @@ class MetodyPomocnicze {
 public:
     static string wczytajLinie();
     static string konwerjsaIntNaString(int liczba);
-    static bool czyPlikJestPusty(fstream &plikTekstowy);
     static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
-    static int konwersjaStringNaInt(string liczba);
     static string pobierzLiczbe(string tekst, int pozycjaZnaku);
+    static int konwersjaStringNaInt(string liczba);
+    static int wczytajLiczbeCalkowita();
     static char wybierzOpcjeZMenuGlownego();
     static char wybierzOpcjeZMenuUzytkownika();
     static char wczytajZnak();
+    static char wybierzOpcjeZMenuEdycja();
 };
 
 #endif // METODYPOMOCNICZE_H

@@ -13,14 +13,6 @@ string MetodyPomocnicze::konwerjsaIntNaString(int liczba) {
     return str;
 }
 
-bool MetodyPomocnicze::czyPlikJestPusty(fstream &plikTekstowy) {
-    plikTekstowy.seekg(0, ios::end);
-    if (plikTekstowy.tellg() == 0)
-        return true;
-    else
-        return false;
-}
-
 string MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst) {
     if (!tekst.empty()) {
         transform(tekst.begin(), tekst.end(), tekst.begin(), ::tolower);
@@ -69,7 +61,11 @@ char MetodyPomocnicze::wybierzOpcjeZMenuUzytkownika() {
     cout << " >>> MENU UZYTKOWNIKA <<<" << endl;
     cout << "---------------------------" << endl;
     cout << "1. Dodaj adresata" << endl;
+    cout << "2. Wyszukaj adresatow po imieniu" << endl;
+    cout << "3. Wyszukaj adresatow po nazwisku" << endl;
     cout << "4. Wyswietl adresatow" << endl;
+    cout << "5. Usun adresata" << endl;
+    cout << "6. Edytuj adresata" << endl;
     cout << "---------------------------" << endl;
     cout << "7. Zmien haslo" << endl;
     cout << "8. Wyloguj sie" << endl;
@@ -95,4 +91,40 @@ char MetodyPomocnicze::wczytajZnak() {
         cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
     }
     return znak;
+}
+
+int MetodyPomocnicze::wczytajLiczbeCalkowita()
+{
+    string wejscie = "";
+    int liczba = 0;
+
+    while (true)
+    {
+        getline(cin, wejscie);
+
+        stringstream myStream(wejscie);
+        if (myStream >> liczba)
+            break;
+        cout << "To nie jest liczba. Wpisz ponownie. " << endl;
+    }
+    return liczba;
+}
+
+char MetodyPomocnicze::wybierzOpcjeZMenuEdycja()
+{
+    char wybor;
+
+    cout << endl << "   >>> MENU  EDYCJA <<<" << endl;
+    cout << "---------------------------" << endl;
+    cout << "Ktore dane zaktualizowac: " << endl;
+    cout << "1 - Imie" << endl;
+    cout << "2 - Nazwisko" << endl;
+    cout << "3 - Numer telefonu" << endl;
+    cout << "4 - Email" << endl;
+    cout << "5 - Adres" << endl;
+    cout << "6 - Powrot " << endl;
+    cout << endl << "Twoj wybor: ";
+    wybor = wczytajZnak();
+
+    return wybor;
 }
