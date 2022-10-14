@@ -147,7 +147,7 @@ void PlikZAdresatami::usunWybranaLinieWPliku(int idAdresata) {
     odczytywanyPlikTekstowy.open(pobierzNazwePliku().c_str(), ios::in);
     tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami.c_str(), ios::out | ios::app);
 
-    if (odczytywanyPlikTekstowy.good() == true && idAdresata != 0) {
+    if (odczytywanyPlikTekstowy.good() && idAdresata != 0) {
         while (getline(odczytywanyPlikTekstowy, wczytanaLinia)) {
             if(idAdresata == pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(wczytanaLinia)) {}
             // Tych przypadkow jest tyle, gdyz chcemy osiagnac taki efekt,
@@ -185,27 +185,22 @@ void PlikZAdresatami::zmienNazwePliku(string staraNazwa, string nowaNazwa) {
 void PlikZAdresatami::edytujAdresataWPliku (Adresat adresat) {
     fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
     string wczytanaLinia = "", nazwaTymczasowegoPlikuZAdresatami = "Adresaci_temp.txt";
+    string zmodyfikowanaDanaAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
     int numerWczytanejLinii = 1;
     int numerEdytowanejLinii = 0;
 
     odczytywanyPlikTekstowy.open(pobierzNazwePliku().c_str(), ios::in);
     tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami.c_str(), ios::out | ios::app);
 
-    if (odczytywanyPlikTekstowy.good() == true && adresat.pobierzId() != 0) {
+    if (odczytywanyPlikTekstowy.good() && adresat.pobierzId() != 0) {
         while (getline(odczytywanyPlikTekstowy, wczytanaLinia)) {
             if (adresat.pobierzId() == pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(wczytanaLinia)) {
                 numerEdytowanejLinii = numerWczytanejLinii;
             }
             if (numerWczytanejLinii == numerEdytowanejLinii) {
-                if (numerWczytanejLinii == 1)
-                    tymczasowyPlikTekstowy << zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
-                else if (numerWczytanejLinii > 1)
-                    tymczasowyPlikTekstowy << endl << zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
+                    numerWczytanejLinii != 1 ? tymczasowyPlikTekstowy << endl << zmodyfikowanaDanaAdresata : tymczasowyPlikTekstowy << zmodyfikowanaDanaAdresata;
             } else {
-                if (numerWczytanejLinii == 1)
-                    tymczasowyPlikTekstowy << wczytanaLinia;
-                else if (numerWczytanejLinii > 1)
-                    tymczasowyPlikTekstowy << endl << wczytanaLinia;
+                    numerWczytanejLinii != 1 ? tymczasowyPlikTekstowy << endl << wczytanaLinia : tymczasowyPlikTekstowy << wczytanaLinia;
             }
             numerWczytanejLinii++;
         }

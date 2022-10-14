@@ -159,7 +159,7 @@ int AdresatMenedzer::usunAdresata() {
             }
         }
     }
-    if (czyIstniejeAdresat == false) {
+    if (!czyIstniejeAdresat) {
         cout << endl << "Nie ma takiego adresata w ksiazce adresowej" << endl << endl;
         system("pause");
     }
@@ -195,15 +195,13 @@ void AdresatMenedzer::edytujAdresata() {
             case '1':
                 cout << "Podaj nowe imie: ";
                 imie = MetodyPomocnicze::wczytajLinie();
-                adresaci[i].ustawImie(imie);
-                adresaci[i].ustawImie(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresaci[i].pobierzImie()));
+                adresaci[i].ustawImie(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(imie));
                 zaktualizujDaneWybranegoAdresata(adresaci[i]);
                 break;
             case '2':
                 cout << "Podaj nowe nazwisko: ";
                 nazwisko = MetodyPomocnicze::wczytajLinie();
-                adresaci[i].ustawNazwisko(nazwisko);
-                adresaci[i].ustawNazwisko(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresaci[i].pobierzNazwisko()));
+                adresaci[i].ustawNazwisko(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwisko));
                 zaktualizujDaneWybranegoAdresata(adresaci[i]);
                 break;
             case '3':
@@ -233,7 +231,7 @@ void AdresatMenedzer::edytujAdresata() {
             }
         }
     }
-    if (czyIstniejeAdresat == false) {
+    if (!czyIstniejeAdresat) {
         cout << endl << "Nie ma takiego adresata." << endl << endl;
     }
     system("pause");
