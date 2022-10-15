@@ -35,8 +35,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1236</x>
-      <y>264</y>
+      <x>1278</x>
+      <y>552</y>
       <w>168</w>
       <h>54</h>
     </coordinates>
@@ -248,13 +248,13 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1272</x>
-      <y>312</y>
+      <x>1314</x>
+      <y>468</y>
       <w>18</w>
       <h>96</h>
     </coordinates>
     <panel_attributes>lt=&lt;..</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -354,5 +354,16 @@
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>620.0;10.0;620.0;310.0;10.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>600</y>
+      <w>1086</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;220.0;1790.0;220.0;1790.0;10.0</additional_attributes>
   </element>
 </diagram>
