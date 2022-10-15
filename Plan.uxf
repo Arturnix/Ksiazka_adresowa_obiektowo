@@ -14,6 +14,7 @@
 - uzytkownikMenedzer : UzytkownikMenedzer
 - adresatMenedzer : *AdresatMenedzer
 - NAZWA_PLIKU_Z_ADRESATAMI : string
+--
 + KsiazkaAdresowa()
 + ~KsiazkaAdresowa()
 + rejestracjaUzytkownika() : void
@@ -107,16 +108,16 @@
     <panel_attributes>MetodyPomocnicze
 --
 --
-+ wczytajLinie() : string
-+ konwerjsaIntNaString() : string
-+ zamienPierwszaLitereNaDuzaAPozostaleNaMale() : string
-+ pobierzLiczbe() : string
-+ konwersjaStringNaInt() : int
-+ wczytajLiczbeCalkowita() : int
-+ wybierzOpcjeZMenuGlownego() : char
-+ wybierzOpcjeZMenuUzytkownika() : char
-+ wczytajZnak() : char
-+ wybierzOpcjeZMenuEdycja() : char</panel_attributes>
+_+ wczytajLinie() : string_
+_+ konwerjsaIntNaString() : string_
+_+ zamienPierwszaLitereNaDuzaAPozostaleNaMale() : string_
+_+ pobierzLiczbe() : string_
+_+ konwersjaStringNaInt() : int_
+_+ wczytajLiczbeCalkowita() : int_
+_+ wybierzOpcjeZMenuGlownego() : char_
+_+ wybierzOpcjeZMenuUzytkownika() : char_
+_+ wczytajZnak() : char_
+_+ wybierzOpcjeZMenuEdycja() : char_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -151,7 +152,6 @@
     <panel_attributes>AdresatMenedzer
 --
 - plikZAdresatami : PlikZAdresatami
-- adresat : Adresat
 - ID_ZALOGOWANEGO_UZYTKOWNIKA : int
 - adresaci : vector&lt;Adresat&gt;
 --
@@ -179,7 +179,6 @@
     </coordinates>
     <panel_attributes>PlikZAdresatami
 --
-- adresat : Adresat
 - idOstatniegoAdresata : int
 --
 + PlikZAdresatami()
@@ -233,28 +232,6 @@
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>954</x>
-      <y>300</y>
-      <w>18</w>
-      <h>114</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1314</x>
-      <y>468</y>
-      <w>18</w>
-      <h>96</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;..</panel_attributes>
-    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -365,5 +342,27 @@
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;220.0;1790.0;220.0;1790.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>996</x>
+      <y>300</y>
+      <w>18</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1314</x>
+      <y>468</y>
+      <w>18</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
   </element>
 </diagram>
